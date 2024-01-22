@@ -1,5 +1,5 @@
-const { nanoid } = require("nanoid");
 const { Pool } = require("pg")
+const { nanoid } = require('nanoid');
 const NotFoundError = require('../../exceptions/NotFoundError');
 const InvariantError = require('../../exceptions/InvariantError');
 
@@ -45,7 +45,7 @@ class AlbumsService {
     const updatedAt = new Date().toISOString();
 
     const query = {
-      text: 'UPDATE albums SET name = $1, year = $2, updatedAt = $3, WHERE id = $4 RETURNING id',
+      text: 'UPDATE albums SET name = $1, year = $2, updated_at = $3 WHERE id = $4 RETURNING id',
       values: [name, year, updatedAt, id],
     };
 
