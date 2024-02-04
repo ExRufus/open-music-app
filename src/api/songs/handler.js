@@ -3,7 +3,7 @@ const autoBind = require("auto-bind");
 class SongsHandler {
   constructor(service, validator) {
     this._service = service;
-    this._validator = validator
+    this._validator = validator;
   
     autoBind(this);
   }
@@ -23,14 +23,14 @@ class SongsHandler {
   }
 
   async getSongsHandler(request, h) {
-      const { title, performer } = request.query;
-      const songs = await this._service.getSongs(title, performer);
-      return {
-        status: 'success',
-        data: {
-          songs,
-        },
-      };
+    const { title, performer } = request.query;
+    const songs = await this._service.getSongs(title, performer);
+    return {
+      status: 'success',
+      data: {
+        songs,
+      },
+    };
   }
 
   async getSongByIdHandler(request, h) {
